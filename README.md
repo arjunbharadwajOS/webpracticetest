@@ -19,7 +19,7 @@ $ git clone git@github.com:arjunbharadwajOS/webpracticetest.git
 
 Or download a ZIP of master [manually](https://github.com/arjunbharadwajOS/webpracticetest/archive/refs/heads/feature/ArjunBharadwaj-PracticeTest.zip) and expand the contents on your system
 
-# Feature Branch: feature/ArjunBharadwaj-PracticeTest
+- Feature Branch: feature/ArjunBharadwaj-PracticeTest
 
 ## Prerequisites
 
