@@ -3,13 +3,10 @@ package com.practicetest;
 import com.Pages.FiltersPage;
 import com.Pages.HomePage;
 import com.Pages.SearchResultsPage;
-import dev.failsafe.internal.util.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import com.libraries.TestDriver;
-import org.openqa.selenium.By;
 
 public class StepDefinitions {
 
@@ -24,15 +21,13 @@ public class StepDefinitions {
         HomePage home = new HomePage(TestDriver.getDriver());
 
         home.clickSearchTextField();
-
         home.enterSearchTextField(searchText);
-
         home.clickPerformSearch();
 
     }
 
     @When("^I select filters on the lefthand panel \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void i_select_filters_on_the_lefthand_panel(String brand, String screensize, String resolution1, String resolution2) throws InterruptedException {
+    public void i_select_filters_on_the_lefthand_panel(String brand, String screensize, String resolution1, String resolution2) {
         FiltersPage filterPage = new FiltersPage(TestDriver.getDriver());
 
         filterPage.applyBrandFilters(brand);

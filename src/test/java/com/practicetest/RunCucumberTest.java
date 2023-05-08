@@ -13,10 +13,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 import com.libraries.TestDriver;
+import java.util.concurrent.TimeUnit;
 
 @Suite
 @IncludeEngines("cucumber")
@@ -28,7 +28,7 @@ public class RunCucumberTest {
 
     @Before
     public void setUp() {
-        String browser = "chrome";
+        String browser = System.getProperty("browser");
         if(browser.equals("firefox")) {
             TestDriver.driver = new FirefoxDriver();
         } else if(browser.equals("chrome")) {
@@ -40,6 +40,7 @@ public class RunCucumberTest {
         }
 
         TestDriver.driver.manage().window().maximize();
+        TestDriver.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
     }
 
     @After(order = 1)

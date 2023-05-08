@@ -1,11 +1,16 @@
 package com.Pages;
 
+import com.libraries.TestDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 import java.util.List;
 
 public class FiltersPage {
@@ -30,21 +35,25 @@ public class FiltersPage {
         }
     }
 
-    public void applyAdditionalFilters(String screensize, String resolution1, String resolution2) throws InterruptedException {
+    public void applyAdditionalFilters(String screensize, String resolution1, String resolution2) {
         int filtersCount = filterList.size();
         int applyFilters = 0;
+        WebDriverWait wait = new WebDriverWait(TestDriver.getDriver(), Duration.ofSeconds(10));
+        WebElement filterElement = null;
 
         for (int jCount = 0; jCount < filtersCount; jCount++)
         {
             if(filterList.get(jCount).getText().equalsIgnoreCase(screensize) && applyFilters == 0){
-                filterList.get(jCount).click();
+                filterElement = wait.until(ExpectedConditions.elementToBeClickable(filterList.get(jCount)));
+                filterElement.click();
                 applyFilters++;
             }else if(filterList.get(jCount).getText().equalsIgnoreCase(resolution1) && applyFilters < 2){
-                filterList.get(jCount).click();
-                Thread.sleep(5000);
+                filterElement = wait.until(ExpectedConditions.elementToBeClickable(filterList.get(jCount)));
+                filterElement.click();
                 applyFilters++;
             }else if(filterList.get(jCount).getText().equalsIgnoreCase(resolution2) && applyFilters == 2 ){
-                filterList.get(jCount).click();
+                filterElement = wait.until(ExpectedConditions.elementToBeClickable(filterList.get(jCount)));
+                filterElement.click();
                 break;
             }
         }
