@@ -3,10 +3,10 @@
 A sample project for Cucumber and/or Selenium tests.
 
 # Assumptions
-In the current Amazon AU filter options were missing: Screen size: 26 in and above and Resolution: 4k UHD
-Hence have used Up to 32 in, 4K and 1080p as screensize and resolution
-Have used basic cucumber version of html report, There is still a scope to use custom report - Allure or Extent Reports
-Need to work on syncronisation in one of the places, have used Thread.sleep 
+- In the current Amazon AU filter options were missing: Screen size: 26 in and above and Resolution: 4k UHD
+  Hence have used Up to 32 in, 4K and 1080p as screensize and resolution
+- Have used basic cucumber version of html report, There is still a scope to use custom report - Allure or Extent Reports
+- Need to work on wait/syncronisation in one of the places, have used Thread.sleep() 
 
 # Instructions
 
