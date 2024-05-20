@@ -27,5 +27,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+    - name: Set the value
+      id: step_one
+      run: |
+        echo /usr/bin/google-chrome --version
     - name: Build with Maven
       run: mvn -B package --file pom.xml
