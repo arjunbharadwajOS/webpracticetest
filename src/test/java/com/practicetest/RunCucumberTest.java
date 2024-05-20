@@ -28,7 +28,7 @@ public class RunCucumberTest {
 
     @Before
     public void setUp() {
-        String browser = System.getProperty("browser");
+        String browser = "chrome";
         if(browser.equals("firefox")) {
             TestDriver.driver = new FirefoxDriver();
         } else if(browser.equals("chrome")) {
