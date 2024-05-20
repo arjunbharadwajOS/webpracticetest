@@ -10,7 +10,7 @@
     <browser>chrome</browser>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <cucumber.version>7.12.0</cucumber.version>
-    <selenium.version>4.9.0</selenium.version>
+    <selenium.version>4.21.0</selenium.version>
     <junit.jupiter.version>5.9.3</junit.jupiter.version>
     <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
     <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
