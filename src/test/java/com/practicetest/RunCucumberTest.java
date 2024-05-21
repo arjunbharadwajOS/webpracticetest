@@ -11,6 +11,7 @@ import org.junit.platform.suite.api.Suite;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
@@ -28,11 +29,16 @@ public class RunCucumberTest {
 
     @Before
     public void setUp() {
-        String browser = System.getProperty("browser");
+        ChromeOptions options = new ChromeOptions();
+        String browser = "chrome";
         if(browser.equals("firefox")) {
             TestDriver.driver = new FirefoxDriver();
         } else if(browser.equals("chrome")) {
-            TestDriver.driver = new ChromeDriver();
+            options.addArguments("--disable-extensions");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--ignore-ssl-errors=yes");
+            options.addArguments("--ignore-certificate-errors");
+            TestDriver.driver = new ChromeDriver(options);
         } else if(browser.equals("edge")) {
             TestDriver.driver = new EdgeDriver();
         } else{

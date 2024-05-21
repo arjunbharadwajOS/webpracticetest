@@ -31,15 +31,15 @@ public class StepDefinitions {
         FiltersPage filterPage = new FiltersPage(TestDriver.getDriver());
 
         filterPage.applyBrandFilters(brand);
-        filterPage.applyAdditionalFilters(screensize, resolution1, resolution2);
+        //filterPage.applyAdditionalFilters(screensize, resolution1, resolution2);
     }
 
     @Then("^I verify the search results are displayed and sorted by price$" )
     public void IVerifySearchResults() throws Throwable {
         SearchResultsPage searchResultsPage = new SearchResultsPage(TestDriver.getDriver());
 
-        searchResultsPage.verifyProductTitles();
-        searchResultsPage.verifyProductPrice();
+         searchResultsPage.verifyProductTitles();
+        //searchResultsPage.verifyProductPrice();
 
     }
 

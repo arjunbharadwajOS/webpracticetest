@@ -8,4 +8,7 @@ public class TestDriver {
         return driver;
     }
 
+    public static void setDriver(WebDriver driver) {
+        TestDriver.driver = driver;
+    }
 }
